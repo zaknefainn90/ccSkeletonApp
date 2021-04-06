@@ -1,0 +1,56 @@
+{
+  "name": "gamerello",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "app-watch": "cd .. && npm run app-watch",
+    "web-watch": "parcel src/index.html --out-dir ../build/web-development",
+    "clean": "rimraf ../build/web-development",
+    "prebuild": "run-s clean eslint",
+    "build-dev-web": "parcel build ./src/index.html --no-minify --out-dir ../build/web-development --public-url ./",
+    "build-prod-web": "parcel build ./src/index.html --out-dir ../build/web-release --public-url ./",
+    "eslint": "npx eslint --resolve-plugins-relative-to . ./src/**/*.ts{,x}",
+    "eslint-fix": "npx eslint --resolve-plugins-relative-to . ./src/**/*.ts{,x} --fix",
+    "test": "jest --config jest.config.ts --testPathPattern=src",
+    "test:coverage": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "Click Code Mateusz Dąbrowski",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-module-resolver": "^4.1.0",
+    "preact": "^10.5.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "ts-jest": "^26.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@types/jest": "^26.0.19",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
+    "components": "./src/components/",
+    "utils": "./src/utils/"
+  }
+}
