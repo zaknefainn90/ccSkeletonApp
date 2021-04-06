@@ -6,7 +6,7 @@ import { logger } from '@utils/appLogger';
 const envPort = process.env.NODE_ENV === EnvironmentNames.PRODUCTION ? process.env.PROD_PORT : process.env.DEV_PORT;
 
 (async () => {
-  if(process.env.DB_NAME) {
+  if (process.env.DB_NAME) {
     await connectToDatabase(process.env.DB_NAME);
   }
 

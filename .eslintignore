@@ -1,0 +1,4 @@
+**/*.snap
+**/*.spec.*
+app/*
+jest.config.ts
